@@ -1,0 +1,217 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1050 680" width="100%" height="100%">
+  <defs>
+    <!-- Arrow Marker -->
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="#000000" />
+    </marker>
+  </defs>
+
+  <style>
+    .title { font-family: 'Kanit', -apple-system, BlinkMacSystemFont, Arial, sans-serif; font-size: 23px; font-weight: 700; fill: #111827; text-anchor: middle; }
+    .subtitle { font-family: 'Kanit', -apple-system, BlinkMacSystemFont, Arial, sans-serif; font-size: 13px; fill: #4b5563; text-anchor: middle; }
+    .node-text { font-family: 'Kanit', -apple-system, BlinkMacSystemFont, Arial, sans-serif; font-size: 13px; font-weight: 600; fill: #000000; text-anchor: middle; }
+    .db-label { font-family: 'Kanit', -apple-system, BlinkMacSystemFont, Arial, sans-serif; font-size: 11px; font-weight: 500; fill: #1f2937; text-anchor: middle; }
+    .edge { stroke: #000000; stroke-width: 1.6; fill: none; }
+    .edge-dashed { stroke: #000000; stroke-width: 1.5; stroke-dasharray: 4 3; fill: none; }
+  </style>
+
+  <!-- Canvas Background -->
+  <rect width="1050" height="680" fill="#ffffff" />
+
+  <!-- Diagram Title (Netflix Style) -->
+  <text x="525" y="38" class="title">Scaling Maison Forme Architecture</text>
+  <text x="525" y="58" class="subtitle">(อิงโครงสร้างและบทเรียนจาก Scaling Netflix Membership Architecture)</text>
+
+  <!-- ================= 1. BLUE NODES (CORE USER & ORDER SERVICES) ================= -->
+  
+  <!-- Node: User Auth & Access Guard Service (Member Holds and Grace) -->
+  <g transform="translate(30, 95)">
+    <rect width="180" height="78" rx="16" fill="#9cc5f8" stroke="#000000" stroke-width="1.8" />
+    <text x="90" y="36" class="node-text">User Auth &amp;</text>
+    <text x="90" y="54" class="node-text">Guard Service</text>
+  </g>
+
+  <!-- Node: User Profile & Session State Service (Member State Management) -->
+  <g transform="translate(30, 235)">
+    <rect width="180" height="78" rx="16" fill="#9cc5f8" stroke="#000000" stroke-width="1.8" />
+    <text x="90" y="36" class="node-text">User State &amp;</text>
+    <text x="90" y="54" class="node-text">Session Service</text>
+  </g>
+
+  <!-- Node: Cart & Order Service (Subscriptions Service) -->
+  <g transform="translate(30, 415)">
+    <rect width="180" height="78" rx="16" fill="#9cc5f8" stroke="#000000" stroke-width="1.8" />
+    <text x="90" y="36" class="node-text">Cart &amp; Order</text>
+    <text x="90" y="54" class="node-text">Processing Service</text>
+  </g>
+
+  <!-- Node: Order & Invoice History Service (Subscriptions History Service) -->
+  <g transform="translate(280, 415)">
+    <rect width="180" height="78" rx="16" fill="#9cc5f8" stroke="#000000" stroke-width="1.8" />
+    <text x="90" y="36" class="node-text">Order &amp; Invoice</text>
+    <text x="90" y="54" class="node-text">History Service</text>
+  </g>
+
+  <!-- ================= 2. ORANGE NODES (STUDIO & AI CHANNELS) ================= -->
+
+  <!-- Node: 3D Studio & Room Customizer Service (Member Bundle Service) -->
+  <g transform="translate(300, 100)">
+    <rect width="180" height="62" rx="14" fill="#fbb05d" stroke="#000000" stroke-width="1.8" />
+    <text x="90" y="28" class="node-text">3D Studio &amp;</text>
+    <text x="90" y="46" class="node-text">Customizer Service</text>
+  </g>
+
+  <!-- Node: AI Style Recommendation Service (Member App Store Service) -->
+  <g transform="translate(300, 205)">
+    <rect width="180" height="62" rx="14" fill="#fbb05d" stroke="#000000" stroke-width="1.8" />
+    <text x="90" y="28" class="node-text">AI Style Match</text>
+    <text x="90" y="46" class="node-text">Recommendation</text>
+  </g>
+
+  <!-- ================= 3. YELLOW NODES (CATALOG, PRICING & EVALUATION) ================= -->
+
+  <!-- Node: Furniture Catalog & Search Service (Plan and Pricing Catalog Service) -->
+  <g transform="translate(660, 130)">
+    <rect width="180" height="78" rx="16" fill="#fff59d" stroke="#000000" stroke-width="1.8" />
+    <text x="90" y="36" class="node-text">Furniture Catalog &amp;</text>
+    <text x="90" y="54" class="node-text">Search Service</text>
+  </g>
+
+  <!-- Node: Dynamic Pricing & Promotion Service (Member Pricing Service) -->
+  <g transform="translate(460, 310)">
+    <rect width="180" height="78" rx="16" fill="#fff59d" stroke="#000000" stroke-width="1.8" />
+    <text x="90" y="36" class="node-text">Promotion &amp;</text>
+    <text x="90" y="54" class="node-text">Discount Service</text>
+  </g>
+
+  <!-- Node: Student Project Evaluation & Rubrics Service (Code Redemptions Service) -->
+  <g transform="translate(660, 310)">
+    <rect width="180" height="78" rx="16" fill="#fff59d" stroke="#000000" stroke-width="1.8" />
+    <text x="90" y="36" class="node-text">Student Evaluation</text>
+    <text x="90" y="54" class="node-text">&amp; Rubrics (100%)</text>
+  </g>
+
+  <!-- ================= 4. GREEN NODES (OFFLINE ANALYTICS & JOBS) ================= -->
+
+  <!-- Node: Offline Analytics & Progress Reconciliation (Apache Spark Powered Jobs) -->
+  <g transform="translate(615, 550)">
+    <rect width="220" height="76" rx="16" fill="#b9f6ca" stroke="#000000" stroke-width="1.8" />
+    <text x="110" y="34" class="node-text">Analytics &amp; Progress</text>
+    <text x="110" y="52" class="node-text">Reconciliation Engine</text>
+  </g>
+
+  <!-- ================= 5. CYLINDER DATABASES ================= -->
+
+  <!-- Database Helper Macro Simulation -->
+  
+  <!-- DB 1: Catalog Database (Green Cylinder - CockroachDB / MySQL) -->
+  <g transform="translate(915, 125)">
+    <!-- Base Body -->
+    <path d="M 0 20 L 0 70 A 38 12 0 0 0 76 70 L 76 20 Z" fill="#b9f6ca" stroke="#000000" stroke-width="1.8" />
+    <!-- Segment lines for 3D look -->
+    <path d="M 0 36 A 38 10 0 0 0 76 36" fill="none" stroke="#000000" stroke-width="1.5" />
+    <path d="M 0 52 A 38 10 0 0 0 76 52" fill="none" stroke="#000000" stroke-width="1.5" />
+    <!-- Cylinder Top Ellipse -->
+    <ellipse cx="38" cy="20" rx="38" ry="12" fill="#d7fbe8" stroke="#000000" stroke-width="1.8" />
+    <!-- Label -->
+    <text x="38" y="96" class="db-label">Furniture Catalog DB</text>
+    <text x="38" y="110" class="db-label">(MySQL 8.0)</text>
+  </g>
+
+  <!-- DB 2: Evaluation & Rubrics DB (Green Cylinder - CockroachDB / MySQL) -->
+  <g transform="translate(915, 305)">
+    <path d="M 0 20 L 0 70 A 38 12 0 0 0 76 70 L 76 20 Z" fill="#b9f6ca" stroke="#000000" stroke-width="1.8" />
+    <path d="M 0 36 A 38 10 0 0 0 76 36" fill="none" stroke="#000000" stroke-width="1.5" />
+    <path d="M 0 52 A 38 10 0 0 0 76 52" fill="none" stroke="#000000" stroke-width="1.5" />
+    <ellipse cx="38" cy="20" rx="38" ry="12" fill="#d7fbe8" stroke="#000000" stroke-width="1.8" />
+    <text x="38" y="96" class="db-label">Evaluation Store</text>
+    <text x="38" y="110" class="db-label">(MySQL / JSON)</text>
+  </g>
+
+  <!-- DB 3: Order Transaction DB (Purple Cylinder - Cassandra / MySQL InnoDB) -->
+  <g transform="translate(80, 535)">
+    <path d="M 0 20 L 0 70 A 38 12 0 0 0 76 70 L 76 20 Z" fill="#d1a3f0" stroke="#000000" stroke-width="1.8" />
+    <path d="M 0 36 A 38 10 0 0 0 76 36" fill="none" stroke="#000000" stroke-width="1.5" />
+    <path d="M 0 52 A 38 10 0 0 0 76 52" fill="none" stroke="#000000" stroke-width="1.5" />
+    <ellipse cx="38" cy="20" rx="38" ry="12" fill="#e8c8fa" stroke="#000000" stroke-width="1.8" />
+    <text x="135" y="52" class="db-label" style="text-anchor:start;">Order Transaction DB</text>
+    <text x="135" y="68" class="db-label" style="text-anchor:start;">(MySQL InnoDB)</text>
+  </g>
+
+  <!-- DB 4: Order History DB (Purple Cylinder - Cassandra / S3) -->
+  <g transform="translate(330, 535)">
+    <path d="M 0 20 L 0 70 A 38 12 0 0 0 76 70 L 76 20 Z" fill="#d1a3f0" stroke="#000000" stroke-width="1.8" />
+    <path d="M 0 36 A 38 10 0 0 0 76 36" fill="none" stroke="#000000" stroke-width="1.5" />
+    <path d="M 0 52 A 38 10 0 0 0 76 52" fill="none" stroke="#000000" stroke-width="1.5" />
+    <ellipse cx="38" cy="20" rx="38" ry="12" fill="#e8c8fa" stroke="#000000" stroke-width="1.8" />
+    <text x="135" y="52" class="db-label" style="text-anchor:start;">Order History Archive</text>
+    <text x="135" y="68" class="db-label" style="text-anchor:start;">(MySQL / S3 Cache)</text>
+  </g>
+
+  <!-- ================= 6. APACHE KAFKA EVENT LOGO ================= -->
+  <g transform="translate(615, 420)">
+    <!-- Event Streams Label -->
+    <text x="-12" y="18" font-family="'Kanit', sans-serif" font-size="12" font-weight="600" fill="#000000" text-anchor="end">Event</text>
+    <text x="-12" y="32" font-family="'Kanit', sans-serif" font-size="12" font-weight="600" fill="#000000" text-anchor="end">Streams</text>
+    
+    <!-- Arrow to Kafka Logo -->
+    <path d="M 0 24 L 20 24" class="edge" marker-end="url(#arrow)" />
+
+    <!-- Kafka Icon -->
+    <g transform="translate(30, 0)">
+      <circle cx="20" cy="8" r="6" fill="#000000" />
+      <circle cx="8" cy="24" r="6" fill="#000000" />
+      <circle cx="32" cy="24" r="6" fill="#000000" />
+      <circle cx="20" cy="40" r="6" fill="#000000" />
+      <!-- Kafka connector lines -->
+      <line x1="20" y1="8" x2="8" y2="24" stroke="#000000" stroke-width="3.5" />
+      <line x1="20" y1="8" x2="32" y2="24" stroke="#000000" stroke-width="3.5" />
+      <line x1="8" y1="24" x2="20" y2="40" stroke="#000000" stroke-width="3.5" />
+      <line x1="32" y1="24" x2="20" y2="40" stroke="#000000" stroke-width="3.5" />
+    </g>
+  </g>
+
+  <!-- ================= 7. CONNECTING ARROWS ================= -->
+
+  <!-- Auth Service -> User State Service (Vertical) -->
+  <path d="M 120 173 L 120 235" class="edge" marker-end="url(#arrow)" />
+
+  <!-- 3D Studio -> User State Service (Curved) -->
+  <path d="M 300 131 C 240 131 220 255 210 255" class="edge" marker-end="url(#arrow)" />
+
+  <!-- AI Style Match -> User State Service (Curved) -->
+  <path d="M 300 236 C 260 236 230 270 210 270" class="edge" marker-end="url(#arrow)" />
+
+  <!-- User State Service -> Cart & Order Processing Service (Vertical) -->
+  <path d="M 120 313 L 120 415" class="edge" marker-end="url(#arrow)" />
+
+  <!-- Pricing Service -> Cart & Order Service (Corner) -->
+  <path d="M 460 349 L 260 349 L 260 454 L 210 454" class="edge" marker-end="url(#arrow)" />
+
+  <!-- Pricing Service -> Catalog Service (Up and Right) -->
+  <path d="M 550 310 L 550 169 L 660 169" class="edge" marker-end="url(#arrow)" />
+
+  <!-- Catalog Service -> Catalog DB (Right) -->
+  <path d="M 840 169 L 915 169" class="edge" marker-end="url(#arrow)" />
+
+  <!-- Evaluation Service -> Evaluation DB (Right) -->
+  <path d="M 840 349 L 915 349" class="edge" marker-end="url(#arrow)" />
+
+  <!-- Cart & Order Service -> Order History Service (Right) -->
+  <path d="M 460 454 L 540 454" class="edge" />
+
+  <!-- Cart & Order Service -> Order DB (Down) -->
+  <path d="M 118 493 L 118 535" class="edge" marker-end="url(#arrow)" />
+
+  <!-- Order History Service -> Order History DB (Down) -->
+  <path d="M 368 493 L 368 535" class="edge" marker-end="url(#arrow)" />
+
+  <!-- ================= 8. DASHED RECONCILIATION LINES ================= -->
+
+  <!-- Order DB -> Offline Reconciliation Engine -->
+  <path d="M 156 575 L 230 575 L 230 515 L 575 515 L 575 575 L 615 575" class="edge-dashed" />
+
+  <!-- Order History DB -> Offline Reconciliation Engine -->
+  <path d="M 406 575 L 490 575 L 490 535 L 575 535" class="edge-dashed" />
+
+</svg>

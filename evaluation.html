@@ -437,8 +437,12 @@
         <!-- Quick Links to Docs -->
         <div class="docs-link-card">
           <h4>📚 เอกสารสถาปัตยกรรมใน Repo</h4>
+          <a class="docs-link-item" href="docs/SCALING_ARCHITECTURE.md" target="_blank">
+            <span>🏛️ Scaling Architecture (Netflix Model)</span>
+            <span>↗</span>
+          </a>
           <a class="docs-link-item" href="docs/MICROSERVICES_ARCHITECTURE.md" target="_blank">
-            <span>🏛️ Microservices Architecture</span>
+            <span>📦 Microservices Architecture</span>
             <span>↗</span>
           </a>
           <a class="docs-link-item" href="docs/TECH_STACK_DIAGRAM.md" target="_blank">
@@ -475,17 +479,18 @@
               <p style="margin:0;font-size:13px;color:var(--ink-soft);">ถอดแบบสถาปัตยกรรมระดับโลกของ Netflix สู่โครงงานของนิสิต</p>
             </div>
             <div class="arch-tabs">
-              <button class="arch-tab-btn active" id="tabArchBtn" onclick="switchDiagram('arch')">Microservices Architecture</button>
-              <button class="arch-tab-btn" id="tabTechBtn" onclick="switchDiagram('tech')">Technology Stack Diagram</button>
+              <button class="arch-tab-btn active" id="tabNetflixBtn" onclick="switchDiagram('netflix')">Netflix Model Architecture</button>
+              <button class="arch-tab-btn" id="tabArchBtn" onclick="switchDiagram('arch')">Microservices Overview</button>
+              <button class="arch-tab-btn" id="tabTechBtn" onclick="switchDiagram('tech')">Technology Stack</button>
             </div>
           </div>
 
           <div class="arch-diagram-box">
-            <img id="diagramImage" src="assets/images/microservices_architecture.svg" alt="Microservices Architecture Diagram">
+            <img id="diagramImage" src="assets/images/netflix_style_architecture.svg" alt="Scaling Architecture Diagram (Netflix Model)">
           </div>
           <div style="margin-top:12px;display:flex;justify-content:space-between;align-items:center;font-size:13px;color:var(--ink-soft);">
-            <span id="diagramCaption">แสดงการแยก 7 Core Microservices, API Gateway, Event Bus และ Polyglot Persistence</span>
-            <a id="diagramDocLink" href="docs/MICROSERVICES_ARCHITECTURE.md" target="_blank" style="color:var(--copper);font-weight:700;">อ่านเอกสารฉบับเต็ม ↗</a>
+            <span id="diagramCaption">ถอดแบบ Scaling Netflix Membership Architecture: User Services, 3D Studio, Catalog, และ Event Streams</span>
+            <a id="diagramDocLink" href="docs/SCALING_ARCHITECTURE.md" target="_blank" style="color:var(--copper);font-weight:700;">อ่านเอกสารฉบับเต็ม ↗</a>
           </div>
         </div>
 
@@ -511,21 +516,29 @@
       const img = document.getElementById("diagramImage");
       const caption = document.getElementById("diagramCaption");
       const docLink = document.getElementById("diagramDocLink");
+      const tabNetflix = document.getElementById("tabNetflixBtn");
       const tabArch = document.getElementById("tabArchBtn");
       const tabTech = document.getElementById("tabTechBtn");
 
-      if (type === "arch") {
+      tabNetflix.classList.remove("active");
+      tabArch.classList.remove("active");
+      tabTech.classList.remove("active");
+
+      if (type === "netflix") {
+        img.src = "assets/images/netflix_style_architecture.svg";
+        caption.textContent = "ถอดแบบ Scaling Netflix Membership Architecture: User Services, 3D Studio, Catalog, และ Event Streams";
+        docLink.href = "docs/SCALING_ARCHITECTURE.md";
+        tabNetflix.classList.add("active");
+      } else if (type === "arch") {
         img.src = "assets/images/microservices_architecture.svg";
         caption.textContent = "แสดงการแยก 7 Core Microservices, API Gateway, Event Bus และ Polyglot Persistence";
         docLink.href = "docs/MICROSERVICES_ARCHITECTURE.md";
         tabArch.classList.add("active");
-        tabTech.classList.remove("active");
       } else {
         img.src = "assets/images/tech_stack_diagram.svg";
         caption.textContent = "แสดง Technology Stack 6 เลเยอร์ โดยถอดบทเรียน 10 ข้อจาก Netflix Architecture";
         docLink.href = "docs/TECH_STACK_DIAGRAM.md";
         tabTech.classList.add("active");
-        tabArch.classList.remove("active");
       }
     }
   </script>
