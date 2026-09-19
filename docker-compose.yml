@@ -1,0 +1,61 @@
+services:
+  # 1. เว็บแอปพลิเคชัน (Apache + PHP 8.2)
+  web:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    container_name: furniture_ai_web
+    restart: unless-stopped
+    ports:
+      - "8080:80"
+    environment:
+      - DB_HOST=db
+      - DB_PORT=3306
+      - DB_NAME=furniture_db
+      - DB_USER=root
+      - DB_PASS=rootpassword
+    volumes:
+      - .:/var/www/html
+    depends_on:
+      db:
+        condition: service_healthy
+
+  # 2. ฐานข้อมูล MySQL 8.0 พร้อม Auto-Initialize Database
+  db:
+    image: mysql:8.0
+    container_name: furniture_ai_db
+    restart: unless-stopped
+    command: --default-authentication-plugin=mysql_native_password --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci --character-set-client-handshake=FALSE --init-connect='SET NAMES utf8mb4'
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: furniture_db
+    ports:
+      # ใช้พอร์ตภายนอก 3307 เพื่อป้องกันการชนกับพอร์ต 3306 ของ XAMPP ในเครื่อง Host
+      - "3307:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./database/init.sql:/docker-entrypoint-initdb.d/01_init.sql:ro
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-prootpassword"]
+      timeout: 10s
+      retries: 5
+      start_period: 15s
+
+  # 3. phpMyAdmin สำหรับจัดการฐานข้อมูลผ่านหน้าเว็บได้สะดวก
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    container_name: furniture_ai_phpmyadmin
+    restart: unless-stopped
+    ports:
+      - "8081:80"
+    environment:
+      PMA_HOST: db
+      PMA_PORT: 3306
+      UPLOAD_LIMIT: 64M
+    depends_on:
+      db:
+        condition: service_healthy
+
+volumes:
+  db_data:
+    driver: local

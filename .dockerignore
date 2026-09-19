@@ -1,0 +1,9 @@
+.git
+.gitignore
+*.exe
+*.bat
+.vscode/
+.idea/
+Thumbs.db
+.DS_Store
+*.log

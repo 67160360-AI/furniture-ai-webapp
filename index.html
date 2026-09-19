@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maison Forme - ดีไซน์เฟอร์นิเจอร์และไลฟ์สไตล์ที่ลงตัว</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary: #ff7a00;
+    --primary-hover: #e66d00;
+    --secondary: #1a2530;
+    --secondary-light: #2c3e50;
+    --text-main: #2b2b2b;
+    --text-muted: #68747a;
+    --bg-main: #f9f9f9;
+    --surface: #ffffff;
+    --border: #e4e8ea;
+    --shadow-sm: 0 4px 12px rgba(0,0,0,0.05);
+    --shadow-md: 0 10px 30px rgba(26,37,48,0.08);
+    --radius: 12px;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Kanit', sans-serif;
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    line-height: 1.6;
+  }
+
+  a { text-decoration: none; color: inherit; }
+
+  /* ---------- Header & Navbar ---------- */
+  header {
+    position: sticky;
+    top: 0;
+    background: var(--surface);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+    z-index: 1000;
+    padding: 12px 24px;
+  }
+  .header-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  .brand {
+    color: var(--primary);
+    font-size: 26px;
+    font-weight: 900;
+    white-space: nowrap;
+  }
+  
+  /* Search Box */
+  .search-form {
+    display: flex;
+    flex: 1;
+    max-width: 320px;
+    border: 1px solid var(--border);
+    border-radius: 50px;
+    overflow: hidden;
+    background: #fff;
+  }
+  .search-form input {
+    flex: 1;
+    border: 0;
+    padding: 8px 16px;
+    outline: none;
+    font-family: 'Kanit', sans-serif;
+    font-size: 14px;
+  }
+  .search-form button {
+    background: var(--primary);
+    color: #fff;
+    border: 0;
+    padding: 0 20px;
+    cursor: pointer;
+    font-weight: 600;
+    font-family: 'Kanit', sans-serif;
+    transition: background 0.2s;
+  }
+  .search-form button:hover { background: var(--primary-hover); }
+
+  /* Navigation Links */
+  nav {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
+  nav a {
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--secondary);
+    transition: color 0.2s;
+    white-space: nowrap;
+  }
+  nav a:hover, nav a.active {
+    color: var(--primary);
+  }
+
+  /* Cart & Auth */
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  .cart-btn {
+    font-size: 22px;
+    position: relative;
+  }
+  .auth-links a {
+    font-size: 14px;
+    font-weight: 600;
+  }
+  .btn-login { color: var(--primary); }
+  .btn-register {
+    background: var(--secondary);
+    color: #fff !important;
+    padding: 6px 14px;
+    border-radius: 6px;
+    transition: background 0.2s;
+  }
+  .btn-register:hover { background: var(--secondary-light); }
+
+  /* ---------- Hero Section ---------- */
+  .hero {
+    background: linear-gradient(135deg, var(--secondary) 0%, var(--secondary-light) 100%);
+    color: #fff;
+    padding: 80px 20px;
+    text-align: center;
+  }
+  .hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .hero h1 {
+    font-size: clamp(32px, 5vw, 50px);
+    margin: 0 0 15px;
+    font-weight: 700;
+  }
+  .hero p {
+    font-size: clamp(15px, 2vw, 18px);
+    color: #dce3e6;
+    margin: 0 0 30px;
+  }
+  .hero-btns {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+  }
+  .btn-hero-primary {
+    background: var(--primary);
+    color: #fff;
+    padding: 12px 28px;
+    border-radius: 8px;
+    font-weight: 700;
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.2s, background 0.2s;
+  }
+  .btn-hero-primary:hover {
+    background: var(--primary-hover);
+    transform: translateY(-2px);
+  }
+  .btn-hero-outline {
+    background: transparent;
+    color: #fff;
+    border: 2px solid rgba(255,255,255,0.4);
+    padding: 12px 28px;
+    border-radius: 8px;
+    font-weight: 700;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .btn-hero-outline:hover {
+    border-color: #fff;
+    background: rgba(255,255,255,0.1);
+  }
+
+  /* ---------- Main Container & Grid ---------- */
+  .container {
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 0 20px;
+  }
+  .section-title {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  .section-title h2 {
+    font-size: 30px;
+    color: var(--secondary);
+    margin: 0 0 8px;
+  }
+  .section-title p {
+    color: var(--text-muted);
+    font-size: 15px;
+    margin: 0;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+  }
+
+  /* Feature/Category Cards */
+  .card {
+    background: var(--surface);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border);
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+  }
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+  }
+  .card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+  }
+  .card-body {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+  .card-body h3 {
+    margin: 0 0 10px;
+    font-size: 18px;
+    color: var(--secondary);
+  }
+  .card-body p {
+    color: var(--text-muted);
+    font-size: 14px;
+    margin: 0 0 20px;
+    flex: 1;
+  }
+  .card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: auto;
+  }
+  .price {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--primary);
+  }
+  .btn-card {
+    background: var(--primary);
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    transition: background 0.2s;
+  }
+  .btn-card:hover { background: var(--primary-hover); }
+
+  /* ---------- Footer ---------- */
+  footer {
+    background: var(--secondary);
+    color: #dce3e6;
+    text-align: center;
+    padding: 30px 20px;
+    margin-top: 80px;
+    font-size: 14px;
+  }
+
+  /* ---------- Responsive Media Queries ---------- */
+  @media (max-width: 992px) {
+    .header-inner {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .search-form {
+      order: 3;
+      max-width: 100%;
+      width: 100%;
+    }
+    nav {
+      order: 2;
+      overflow-x: auto;
+      width: 100%;
+      justify-content: center;
+      padding-bottom: 5px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    header { padding: 10px 15px; }
+    .hero { padding: 50px 15px; }
+    .grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+  <!-- ส่วนหัวเว็บ (Header & Navbar) -->
+  <header>
+    <div class="header-inner">
+      <a href="index.php" class="brand">Maison Forme</a>
+      
+      <form action="search.html" method="GET" class="search-form">
+        <input type="text" name="keyword" placeholder="ค้นหาเฟอร์นิเจอร์ หรือสไตล์ที่ชอบ...">
+        <button type="submit">ค้นหา</button>
+      </form>
+
+      <nav aria-label="เมนูหลัก">
+        <a href="index.php" class="active">หน้าหลัก</a>
+        <a href="products.html">สินค้า</a>
+        <a href="furniture-designer.html">The Perfect Match</a>
+        <a href="services.html">บริการ</a>
+        <a href="promo.html">โปรโมชั่น</a>
+        
+      </nav>
+
+      <div class="header-actions">
+        <a href="cart.html" class="cart-btn" aria-label="ตะกร้าสินค้า">🛒</a>
+        <div class="auth-links">
+          <a href="login.html" class="btn-login">เข้าสู่ระบบ</a>
+          <a href="register.html" class="btn-register">สมัครสมาชิก</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ส่วนต้อนรับ (Hero Banner) -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>เติมเต็มความสุขให้บ้านด้วยเฟอร์นิเจอร์ที่คุณเลือกเอง</h1>
+      <p>ค้นพบสไตล์ที่ใช่สำหรับคุณผ่านระบบประเมินไลฟ์สไตล์อัจฉริยะ และเลือกชมคอลเลกชันเฟอร์นิเจอร์พรีเมียมระดับดีไซน์เนอร์</p>
+      <div class="hero-btns">
+        <a href="furniture-designer.html" class="btn-hero-primary">✨ ค้นหาสไตล์ที่ใช่ (The Perfect Match)</a>
+        <a href="products.html" class="btn-hero-outline">🛍️ ดูสินค้าทั้งหมด</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ส่วนแสดงสินค้าไฮไลต์หรือบริการเด่น -->
+  <main class="container">
+    <div class="section-title">
+      <h2>คอลเลกชันยอดนิยม</h2>
+      <p>คัดสรรชิ้นงานดีไซน์คุณภาพเพื่อทุกมุมโปรดในบ้านคุณ</p>
+    </div>
+
+    <!-- Grid แสดงสินค้า (ดึงข้อมูลหรือจำลองการแสดงผลแบบ Responsive) -->
+    <div class="grid">
+      <div class="card">
+        <img src="images/chair.jpg" alt="เก้าอี้ไม้โค้ง" onerror="this.src='https://via.placeholder.com/300x220?text=Maison+Forme';">
+        <div class="card-body">
+          <h3>เก้าอี้ไม้โค้งสไตล์มินิมอล</h3>
+          <p>งานไม้จริงดีไซน์โค้งมน รองรับสรีระได้ดีเยี่ยม ให้ความรู้สึกอบอุ่นและผ่อนคลาย</p>
+          <div class="card-footer">
+            <span class="price">฿6,900</span>
+            <a href="products.html" class="btn-card">ดูรายละเอียด</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="images/chair.jpg" alt="โต๊ะกาแฟ" onerror="this.src='https://via.placeholder.com/300x220?text=Maison+Forme';">
+        <div class="card-body">
+          <h3>โต๊ะกาแฟทรงกลมโมเดิร์น</h3>
+          <p>ดีไซน์เรียบหรู ทันสมัย เหมาะสำหรับห้องรับแขกขนาดกลางและคอนโดมิเนียม</p>
+          <div class="card-footer">
+            <span class="price">฿8,500</span>
+            <a href="products.html" class="btn-card">ดูรายละเอียด</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="images/chair.jpg" alt="ม้านั่งสั่งทำ" onerror="this.src='https://via.placeholder.com/300x220?text=Maison+Forme';">
+        <div class="card-body">
+          <h3>ม้านั่งยาวเจแปนดิ</h3>
+          <p>ผสมผสานความเรียบง่ายและใช้งานได้อเนกประสงค์ เข้าได้กับทุกมุมโปรดในบ้าน</p>
+          <div class="card-footer">
+            <span class="price">฿12,000</span>
+            <a href="products.html" class="btn-card">ดูรายละเอียด</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- ส่วนท้ายเว็บ (Footer) -->
+  <footer>
+    <p>© 2026 Maison Forme | ร้านเฟอร์นิเจอร์และระบบบ้านอัจฉริยะ All Rights Reserved.</p>
+  </footer>
+
+</body>
+</html>

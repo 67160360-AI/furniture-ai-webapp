@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ไอเดียแต่งบ้าน - Maison Forme</title>
+<meta name="description" content="แรงบันดาลใจในการเลือกเฟอร์นิเจอร์และสร้างพื้นที่ที่เป็นตัวคุณ">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-base: #f4f5f7;
+    --ink: #1d1d1f;
+    --ink-soft: #86868b;
+    --ink-faint: #a1a1a6;
+    --amber: #ff8a1e;
+    --amber-deep: #e6690a;
+    --copper: #c2520a;
+    --glass-bg: rgba(255,255,255,0.45);
+    --glass-blur: blur(40px) saturate(200%);
+    --glass-border: rgba(255,255,255,0.8);
+    --glass-highlight: inset 0 1px 0 rgba(255,255,255,1);
+    --radius-xl: 36px; --radius-lg: 28px; --radius-md: 20px; --radius-sm: 14px;
+    --shadow-ios: 0 10px 40px -10px rgba(0,0,0,0.08);
+    --shadow-float: 0 24px 60px -20px rgba(0,0,0,0.12);
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; padding: 0; font-family: 'Kanit', sans-serif; background: var(--bg-base); color: var(--ink); line-height: 1.7; min-height: 100vh; overflow-x: hidden; }
+  a { text-decoration: none; color: inherit; }
+  img { max-width: 100%; display: block; }
+
+  /* Liquid Background */
+  .liquid-bg { position: fixed; inset: 0; z-index: -1; overflow: hidden; background: #f0f2f5; }
+  .blob { position: absolute; border-radius: 50%; filter: blur(80px); will-change: transform; }
+  .blob-1 { width: 50vw; height: 50vw; background: #ffaa55; opacity: 0.4; top: -10%; left: -10%; animation: driftA 20s alternate infinite ease-in-out; }
+  .blob-2 { width: 45vw; height: 45vw; background: #5fc9e8; opacity: 0.4; top: 20%; right: -15%; animation: driftB 25s alternate infinite ease-in-out; }
+  @keyframes driftA { 0% { transform: translate(0,0) scale(1); } 100% { transform: translate(10%,10%) scale(1.1); } }
+  @keyframes driftB { 0% { transform: translate(0,0) scale(1); } 100% { transform: translate(-10%,10%) scale(1.15); } }
+
+  /* Header */
+  header { position: sticky; top: 14px; z-index: 1000; padding: 0 16px; margin-bottom: 6px; }
+  .header-inner { max-width: 1280px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 20px; background: var(--glass-bg); backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur); border: 1px solid var(--glass-border); border-radius: 999px; box-shadow: var(--shadow-ios); padding: 10px 12px 10px 22px; }
+  .brand { color: var(--copper); font-size: 22px; font-weight: 900; letter-spacing: -0.5px; white-space: nowrap; }
+  .search-form { display: flex; flex: 1; max-width: 280px; border: 1px solid rgba(0,0,0,0.05); border-radius: 999px; overflow: hidden; background: rgba(255,255,255,0.6); transition: all 0.3s ease; }
+  .search-form:focus-within { border-color: var(--amber); box-shadow: 0 0 0 3px rgba(255,138,30,0.18); background: rgba(255,255,255,0.9); }
+  .search-form input { flex: 1; border: 0; padding: 8px 16px; outline: none; font-family: 'Kanit', sans-serif; font-size: 13px; background: transparent; color: var(--ink); }
+  .search-form button { background: linear-gradient(180deg, var(--amber), var(--amber-deep)); color: #fff; border: 0; padding: 0 18px; cursor: pointer; font-weight: 600; font-family: 'Kanit', sans-serif; transition: filter 0.2s; }
+  .search-form button:hover { filter: brightness(1.08); }
+  nav { display: flex; gap: 4px; align-items: center; }
+  nav a { font-weight: 500; font-size: 14px; color: var(--ink-soft); white-space: nowrap; padding: 8px 14px; border-radius: 999px; transition: background 0.2s, color 0.2s; }
+  nav a:hover { background: rgba(0,0,0,0.04); color: var(--ink); }
+  nav a.active { color: var(--copper); font-weight: 700; background: rgba(255,138,30,0.14); }
+  .header-actions { display: flex; align-items: center; gap: 10px; }
+  .cart-btn { font-size: 19px; width: 42px; height: 42px; display: flex; align-items: center; justify-content: center; border-radius: 50%; background: rgba(255,255,255,0.6); border: 1px solid var(--glass-border); position: relative; transition: all 0.2s; }
+  .cart-btn:hover { background: rgba(255,255,255,0.9); transform: scale(1.06); }
+  .cart-badge { position: absolute; top: -3px; right: -3px; background: linear-gradient(135deg, var(--amber), var(--copper)); color: #fff; font-size: 11px; font-weight: 800; min-width: 18px; height: 18px; line-height: 18px; padding: 0 4px; border-radius: 999px; text-align: center; border: 2px solid #fff; display: none; }
+  .auth-links { display: flex; gap: 8px; align-items: center; }
+  .auth-links a { font-size: 14px; font-weight: 600; padding: 9px 18px; border-radius: 999px; transition: all 0.2s; }
+  .btn-login { color: var(--copper); background: rgba(255,138,30,0.12); }
+  .btn-login:hover { background: rgba(255,138,30,0.2); }
+  .btn-register { background: var(--ink); color: #fff !important; box-shadow: 0 4px 14px rgba(0,0,0,0.15); }
+  .btn-register:hover { filter: brightness(1.1); transform: translateY(-1px); }
+
+  /* Hero */
+  .hero { padding: 60px 16px 0; }
+  .hero-inner { max-width: 980px; margin: 0 auto; background: linear-gradient(135deg, var(--amber), var(--amber-deep)); border-radius: var(--radius-xl); padding: 60px 48px; text-align: center; color: #fff; box-shadow: 0 20px 60px -20px rgba(255,138,30,0.5); }
+  .hero-inner h1 { font-size: clamp(28px,4vw,44px); font-weight: 900; margin: 0 0 14px; }
+  .hero-inner p { font-size: 16px; color: rgba(255,255,255,0.85); margin: 0; }
+
+  /* Content */
+  .container { max-width: 1100px; margin: 60px auto; padding: 0 24px; }
+  .section-title { text-align: center; margin-bottom: 40px; }
+  .section-title h2 { font-size: 28px; font-weight: 800; margin: 0 0 8px; }
+  .section-title p { color: var(--ink-soft); font-size: 15px; margin: 0; }
+  .article-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
+  .article-card { background: var(--glass-bg); backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur); border: 1px solid var(--glass-border); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-ios); transition: transform 0.3s ease; }
+  .article-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-float); }
+  .article-card img { width: 100%; height: 220px; object-fit: cover; }
+  .article-body { padding: 24px; }
+  .article-tag { display: inline-block; background: rgba(255,138,30,0.1); color: var(--copper); padding: 4px 14px; border-radius: 999px; font-size: 12px; font-weight: 700; margin-bottom: 12px; }
+  .article-body h2 { font-size: 20px; font-weight: 800; margin: 0 0 10px; }
+  .article-body p { font-size: 14px; color: var(--ink-soft); margin: 0; line-height: 1.6; }
+
+  /* Footer */
+  footer { padding: 0 16px 30px; margin-top: 80px; }
+  .footer-panel { max-width: 1280px; margin: 0 auto; background: var(--glass-bg); backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur); border: 1px solid var(--glass-border); box-shadow: var(--shadow-ios); border-radius: var(--radius-xl); padding: 36px 40px 26px; }
+  .footer-copy { text-align: center; font-size: 13px; color: var(--ink-faint); margin: 0; }
+
+  @media (max-width: 992px) { .header-inner { flex-wrap: wrap; justify-content: center; border-radius: 28px; } .search-form { order: 3; max-width: 100%; width: 100%; } nav { order: 2; overflow-x: auto; width: 100%; justify-content: center; } }
+  @media (max-width: 600px) { header { padding: 0 10px; top: 10px; } .hero-inner { padding: 40px 24px; border-radius: var(--radius-lg); } }
+</style>
+</head>
+<body>
+  <div class="liquid-bg" aria-hidden="true">
+    <span class="blob blob-1"></span><span class="blob blob-2"></span>
+  </div>
+
+  <header>
+    <div class="header-inner">
+      <a href="index.php" class="brand">Maison Forme</a>
+      <form action="search.html" method="GET" class="search-form">
+        <input type="text" name="keyword" placeholder="ค้นหาเฟอร์นิเจอร์ หรือสไตล์ที่ชอบ...">
+        <button type="submit">ค้นหา</button>
+      </form>
+      <nav aria-label="เมนูหลัก">
+        <a href="index.php">หน้าหลัก</a>
+        <a href="products.html">สินค้า</a>
+        <a href="furniture-designer.html">The Perfect Match</a>
+        <a href="services.html">บริการ</a>
+        <a href="promo.html">โปรโมชั่น</a>
+        <a href="article.html" class="active">บทความ</a>
+      </nav>
+      <div class="header-actions">
+        <a href="cart.html" class="cart-btn" aria-label="ตะกร้าสินค้า">🛒<span class="cart-badge"></span></a>
+        <div class="auth-links">
+          <a href="login.html" class="btn-login">เข้าสู่ระบบ</a>
+          <a href="register.html" class="btn-register">สมัครสมาชิก</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <h1>📰 ไอเดียแต่งบ้าน</h1>
+      <p>แรงบันดาลใจในการเลือกเฟอร์นิเจอร์และสร้างพื้นที่ที่เป็นตัวคุณ</p>
+    </div>
+  </section>
+
+  <main class="container">
+    <div class="section-title">
+      <h2>บทความแนะนำ</h2>
+      <p>เคล็ดลับและไอเดียการตกแต่งบ้านจากผู้เชี่ยวชาญ</p>
+    </div>
+    <div class="article-grid">
+      <article class="article-card">
+        <img src="images/article1.jpg" alt="คู่มือเลือกเฟอร์นิเจอร์ไม้" onerror="this.onerror=null;this.src='https://placehold.co/400x250/f4f5f7/86868b?text=Maison+Forme';">
+        <div class="article-body">
+          <span class="article-tag">ไลฟ์สไตล์</span>
+          <h2>เลือกเฟอร์นิเจอร์ไม้ให้เข้ากับบ้าน</h2>
+          <p>ทำความรู้จักวัสดุ โทนสี และรูปทรงที่ช่วยสร้างบรรยากาศอบอุ่น</p>
+        </div>
+      </article>
+      <article class="article-card">
+        <img src="images/article2.jpg" alt="การจัดห้องอย่างมีสไตล์" onerror="this.onerror=null;this.src='https://placehold.co/400x250/f4f5f7/86868b?text=Maison+Forme';">
+        <div class="article-body">
+          <span class="article-tag">ดีไซน์</span>
+          <h2>จัดห้องให้สวยและใช้งานได้จริง</h2>
+          <p>เคล็ดลับการเลือกขนาดและจัดวางเฟอร์นิเจอร์ให้เหมาะกับพื้นที่</p>
+        </div>
+      </article>
+      <article class="article-card">
+        <img src="images/article1.jpg" alt="เทรนด์เฟอร์นิเจอร์ 2026" onerror="this.onerror=null;this.src='https://placehold.co/400x250/f4f5f7/86868b?text=Maison+Forme';">
+        <div class="article-body">
+          <span class="article-tag">เทรนด์</span>
+          <h2>เทรนด์เฟอร์นิเจอร์ที่กำลังมาแรงปี 2026</h2>
+          <p>สไตล์ Japandi, Minimalist และ Scandinavian ยังคงครองใจนักแต่งบ้านทั่วโลก</p>
+        </div>
+      </article>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-panel">
+      <p class="footer-copy">© 2026 Maison Forme | ร้านเฟอร์นิเจอร์ All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script src="site.js"></script>
+  <script src="account.js?v=4"></script>
+</body>
+</html>

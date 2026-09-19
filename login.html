@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>เข้าสู่ระบบ - Maison Forme</title>
+<meta name="description" content="เข้าสู่ระบบ Maison Forme เพื่อเข้าถึงคอลเลกชันเฟอร์นิเจอร์พรีเมียมและระบบออกแบบ AI">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-base: #f4f5f7;
+    --ink: #1d1d1f;
+    --ink-soft: #86868b;
+    --ink-faint: #a1a1a6;
+    --amber: #ff8a1e;
+    --amber-deep: #e6690a;
+    --copper: #c2520a;
+    --glass-bg: rgba(255,255,255,0.55);
+    --glass-blur: blur(40px) saturate(200%);
+    --glass-border: rgba(255,255,255,0.85);
+    --glass-highlight: inset 0 1px 0 rgba(255,255,255,1);
+    --radius-xl: 36px;
+    --radius-lg: 28px;
+    --radius-md: 20px;
+    --radius-sm: 14px;
+    --shadow-ios: 0 10px 40px -10px rgba(0,0,0,0.10);
+    --shadow-float: 0 24px 60px -20px rgba(0,0,0,0.15);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { height: 100%; }
+  body {
+    font-family: 'Kanit', sans-serif;
+    min-height: 100vh; overflow-x: hidden;
+    background: #f0f2f5;
+    display: flex; flex-direction: column;
+  }
+  a { text-decoration: none; color: inherit; }
+
+  /* ---------- Liquid Background ---------- */
+  .liquid-bg { position: fixed; inset: 0; z-index: -1; overflow: hidden; background: #f0f2f5; }
+  .blob { position: absolute; border-radius: 50%; filter: blur(80px); will-change: transform; }
+  .blob-1 { width: 55vw; height: 55vw; background: #ffaa55; opacity: 0.38; top: -15%; left: -15%; animation: driftA 20s alternate infinite ease-in-out; }
+  .blob-2 { width: 40vw; height: 40vw; background: #5fc9e8; opacity: 0.28; bottom: -10%; right: -10%; animation: driftB 25s alternate infinite ease-in-out; }
+  .blob-3 { width: 30vw; height: 30vw; background: #c084fc; opacity: 0.18; top: 40%; left: 40%; animation: driftA 18s alternate-reverse infinite ease-in-out; }
+  @keyframes driftA { 0% { transform: translate(0,0) scale(1); } 100% { transform: translate(8%,8%) scale(1.1); } }
+  @keyframes driftB { 0% { transform: translate(0,0) scale(1); } 100% { transform: translate(-8%,-6%) scale(1.12); } }
+
+  /* ---------- Minimal Topbar ---------- */
+  .topbar {
+    position: sticky; top: 0; z-index: 100;
+    padding: 14px 24px;
+    display: flex; align-items: center; justify-content: space-between;
+    background: rgba(244,245,247,0.7); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255,255,255,0.6);
+  }
+  .topbar-brand { color: var(--copper); font-size: 22px; font-weight: 900; letter-spacing: -0.5px; }
+  .topbar-link { font-size: 14px; color: var(--ink-soft); font-weight: 500; transition: color 0.2s; }
+  .topbar-link:hover { color: var(--ink); }
+
+  /* ---------- Page Layout ---------- */
+  .page-wrap {
+    flex: 1; display: flex; align-items: center; justify-content: center;
+    padding: 48px 16px;
+  }
+
+  /* ---------- Card Split ---------- */
+  .auth-card {
+    width: 100%; max-width: 900px;
+    display: grid; grid-template-columns: 1fr 1fr;
+    background: var(--glass-bg); backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--glass-border); border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-float), var(--glass-highlight);
+    overflow: hidden;
+  }
+
+  /* Left Panel — Brand Story */
+  .auth-panel-left {
+    background: linear-gradient(150deg, var(--amber) 0%, var(--amber-deep) 55%, #a83a00 100%);
+    padding: 56px 44px; display: flex; flex-direction: column; justify-content: space-between;
+    position: relative; overflow: hidden;
+  }
+  .auth-panel-left::before {
+    content: ''; position: absolute; top: -60px; right: -60px;
+    width: 220px; height: 220px; border-radius: 50%;
+    background: rgba(255,255,255,0.12); pointer-events: none;
+  }
+  .auth-panel-left::after {
+    content: ''; position: absolute; bottom: -40px; left: -40px;
+    width: 160px; height: 160px; border-radius: 50%;
+    background: rgba(255,255,255,0.08); pointer-events: none;
+  }
+  .panel-logo { color: #fff; font-size: 26px; font-weight: 900; letter-spacing: -0.5px; }
+  .panel-body { position: relative; z-index: 1; }
+  .panel-body h2 { font-size: 30px; font-weight: 900; color: #fff; line-height: 1.25; margin-bottom: 14px; }
+  .panel-body p { color: rgba(255,255,255,0.82); font-size: 15px; line-height: 1.7; }
+  .panel-features { display: flex; flex-direction: column; gap: 14px; margin-top: 28px; }
+  .panel-feature { display: flex; align-items: center; gap: 12px; color: rgba(255,255,255,0.9); font-size: 14px; font-weight: 500; }
+  .feature-dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,0.8); flex-shrink: 0; }
+  .panel-footer { color: rgba(255,255,255,0.55); font-size: 12px; }
+
+  /* Right Panel — Form */
+  .auth-panel-right {
+    padding: 56px 44px; display: flex; flex-direction: column; justify-content: center;
+  }
+  .form-header { margin-bottom: 32px; }
+  .form-header h1 { font-size: 26px; font-weight: 800; color: var(--ink); margin-bottom: 6px; }
+  .form-header p { font-size: 14px; color: var(--ink-soft); }
+  .form-header p a { color: var(--copper); font-weight: 600; }
+  .form-header p a:hover { text-decoration: underline; }
+
+  .field { margin-bottom: 20px; }
+  .field label { display: block; font-size: 13px; font-weight: 700; color: var(--ink); margin-bottom: 8px; }
+  .field-input-wrap { position: relative; }
+  .field-input-wrap .field-icon {
+    position: absolute; left: 16px; top: 50%; transform: translateY(-50%);
+    font-size: 16px; pointer-events: none;
+  }
+  .field input {
+    width: 100%; padding: 13px 16px 13px 44px;
+    border: 1.5px solid rgba(0,0,0,0.09);
+    border-radius: var(--radius-sm); font-family: 'Kanit', sans-serif; font-size: 14px;
+    background: rgba(255,255,255,0.7); color: var(--ink);
+    transition: border-color 0.25s, box-shadow 0.25s, background 0.25s;
+    outline: none;
+  }
+  .field input:focus {
+    border-color: var(--amber); background: rgba(255,255,255,0.95);
+    box-shadow: 0 0 0 3px rgba(255,138,30,0.18);
+  }
+  .field input::placeholder { color: var(--ink-faint); }
+
+  .btn-submit {
+    width: 100%; padding: 14px;
+    background: linear-gradient(180deg, var(--amber) 0%, var(--amber-deep) 100%);
+    color: #fff; font-family: 'Kanit', sans-serif; font-size: 15px; font-weight: 700;
+    border: none; border-radius: var(--radius-sm); cursor: pointer;
+    box-shadow: 0 6px 20px rgba(255,138,30,0.4);
+    transition: filter 0.2s, transform 0.2s, box-shadow 0.2s;
+    margin-top: 8px;
+  }
+  .btn-submit:hover { filter: brightness(1.06); transform: translateY(-1px); box-shadow: 0 10px 28px rgba(255,138,30,0.45); }
+  .btn-submit:active { transform: translateY(0); }
+  .btn-submit:disabled { opacity: 0.6; cursor: not-allowed; }
+
+  /* Status message */
+  .auth-status {
+    font-size: 13px; padding: 10px 14px; border-radius: var(--radius-sm);
+    margin-bottom: 16px; display: none;
+  }
+  .auth-status.error { background: rgba(220,38,38,0.08); color: #dc2626; border: 1px solid rgba(220,38,38,0.2); display: block; }
+  .auth-status.success { background: rgba(34,197,94,0.08); color: #16a34a; border: 1px solid rgba(34,197,94,0.2); display: block; }
+
+  /* divider */
+  .divider { display: flex; align-items: center; gap: 12px; margin: 24px 0; }
+  .divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: rgba(0,0,0,0.08); }
+  .divider span { font-size: 12px; color: var(--ink-faint); white-space: nowrap; }
+
+  /* ---------- Footer ---------- */
+  footer { text-align: center; padding: 20px; font-size: 12px; color: var(--ink-faint); }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 700px) {
+    .auth-card { grid-template-columns: 1fr; }
+    .auth-panel-left { padding: 36px 28px; }
+    .panel-features { display: none; }
+    .auth-panel-right { padding: 40px 28px; }
+  }
+</style>
+</head>
+<body>
+
+  <!-- Liquid Background -->
+  <div class="liquid-bg" aria-hidden="true">
+    <span class="blob blob-1"></span>
+    <span class="blob blob-2"></span>
+    <span class="blob blob-3"></span>
+  </div>
+
+  <!-- Minimal Topbar -->
+  <nav class="topbar" aria-label="แถบนำทาง">
+    <a href="index.php" class="topbar-brand">Maison Forme</a>
+    <a href="index.php" class="topbar-link">← กลับหน้าหลัก</a>
+  </nav>
+
+  <!-- Main -->
+  <div class="page-wrap">
+    <div class="auth-card">
+
+      <!-- Left Brand Panel -->
+      <div class="auth-panel-left">
+        <div class="panel-logo">Maison Forme</div>
+        <div class="panel-body">
+          <h2>ยินดีต้อนรับกลับมา</h2>
+          <p>เข้าสู่ระบบเพื่อเข้าถึงคอลเลกชันพรีเมียม และระบบออกแบบเฟอร์นิเจอร์ AI ของคุณ</p>
+          <div class="panel-features">
+            <div class="panel-feature"><div class="feature-dot"></div>คอลเลกชันเฟอร์นิเจอร์พรีเมียม</div>
+            <div class="panel-feature"><div class="feature-dot"></div>ระบบออกแบบ AI (The Perfect Match)</div>
+            <div class="panel-feature"><div class="feature-dot"></div>ติดตามคำสั่งซื้อแบบ Real-time</div>
+            <div class="panel-feature"><div class="feature-dot"></div>บันทึกดีไซน์โปรดของคุณ</div>
+          </div>
+        </div>
+        <div class="panel-footer">© 2026 Maison Forme. All rights reserved.</div>
+      </div>
+
+      <!-- Right Form Panel -->
+      <div class="auth-panel-right">
+        <div class="form-header">
+          <h1>เข้าสู่ระบบ</h1>
+          <p>ยังไม่มีบัญชี? <a href="register.html">สมัครสมาชิกฟรี</a></p>
+        </div>
+
+        <p class="auth-status" id="loginStatus" data-auth-status></p>
+
+        <form id="loginForm" data-auth-form="login" autocomplete="on">
+          <div class="field">
+            <label for="login-username">ชื่อผู้ใช้</label>
+            <div class="field-input-wrap">
+              <span class="field-icon">👤</span>
+              <input id="login-username" name="username" type="text" required
+                placeholder="กรอกชื่อผู้ใช้ของคุณ" autocomplete="username">
+            </div>
+          </div>
+          <div class="field">
+            <label for="login-password">รหัสผ่าน</label>
+            <div class="field-input-wrap">
+              <span class="field-icon">🔒</span>
+              <input id="login-password" name="password" type="password" minlength="6" required
+                placeholder="กรอกรหัสผ่าน" autocomplete="current-password">
+            </div>
+          </div>
+          <button class="btn-submit" type="submit" id="loginBtn">เข้าสู่ระบบ</button>
+        </form>
+
+        <div class="divider"><span>หรือ</span></div>
+        <p style="text-align:center; font-size:13px; color:var(--ink-soft);">
+          ยังไม่มีบัญชีใช่ไหม? <a href="register.html" style="color:var(--copper);font-weight:700;">สมัครสมาชิกเลย →</a>
+        </p>
+      </div>
+
+    </div>
+  </div>
+
+  <footer>© 2026 Maison Forme | ร้านเฟอร์นิเจอร์ All Rights Reserved.</footer>
+
+  <script src="site.js"></script>
+  <script src="guard.js"></script>
+  <script src="account.js?v=4"></script>
+  <script src="auth.js"></script>
+  <script>
+    // Enhanced status display
+    const statusEl = document.getElementById('loginStatus');
+    const observer = new MutationObserver(() => {
+      const text = statusEl.textContent.trim();
+      if (!text) { statusEl.className = 'auth-status'; return; }
+      const isError = /ไม่ถูก|ผิด|error|fail|invalid/i.test(text);
+      statusEl.className = 'auth-status ' + (isError ? 'error' : 'success');
+    });
+    if (statusEl) observer.observe(statusEl, { childList: true, characterData: true, subtree: true });
+  </script>
+
+</body>
+</html>
