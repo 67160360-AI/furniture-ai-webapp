@@ -274,6 +274,7 @@
         <a href="furniture-designer.html">The Perfect Match</a>
         <a href="services.html">บริการ</a>
         <a href="promo.html">โปรโมชั่น</a>
+        <a href="evaluation.html">📊 ประเมินโครงงาน (100%)</a>
       </nav>
       <div class="header-actions">
         <a href="cart.html" class="cart-btn" aria-label="ตะกร้าสินค้า">🛒<span class="cart-badge"></span></a>

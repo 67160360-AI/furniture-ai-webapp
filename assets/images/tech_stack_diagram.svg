@@ -1,0 +1,273 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 840" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b1120" />
+      <stop offset="60%" stop-color="#1e1e38" />
+      <stop offset="100%" stop-color="#0a0a14" />
+    </linearGradient>
+
+    <linearGradient id="cardGrad2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="rgba(30, 32, 60, 0.85)" />
+      <stop offset="100%" stop-color="rgba(18, 20, 38, 0.95)" />
+    </linearGradient>
+
+    <linearGradient id="netflixRed" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#e50914" />
+      <stop offset="100%" stop-color="#b81d24" />
+    </linearGradient>
+
+    <linearGradient id="glowOrange" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ff7a00" />
+      <stop offset="100%" stop-color="#e65100" />
+    </linearGradient>
+
+    <filter id="shadow2" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="6" flood-color="#000000" flood-opacity="0.4" />
+    </filter>
+  </defs>
+
+  <style>
+    .title { font-family: 'Kanit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-weight: 800; fill: #ffffff; }
+    .subtitle { font-family: 'Kanit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 13px; fill: #94a3b8; }
+    .tier-header { font-family: 'Kanit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-weight: 700; font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; }
+    .tech-box-title { font-family: 'Kanit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-weight: 700; font-size: 13px; fill: #f8fafc; }
+    .tech-box-sub { font-family: 'Kanit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; fill: #cbd5e1; }
+    .lesson-badge { font-family: 'Kanit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-weight: 600; font-size: 10px; fill: #fca5a5; }
+  </style>
+
+  <!-- Background -->
+  <rect width="1200" height="840" rx="20" fill="url(#bgGrad2)" />
+  <rect x="1" y="1" width="1198" height="838" rx="19" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="2" />
+
+  <!-- Header Section -->
+  <g transform="translate(40, 32)">
+    <rect x="0" y="0" width="38" height="38" rx="10" fill="url(#netflixRed)" />
+    <text x="9" y="27" font-family="'Kanit', sans-serif" font-weight="900" font-size="22" fill="#fff">N</text>
+    <text x="50" y="20" class="title" font-size="22">Technology Stack Diagram (Netflix Architecture Model)</text>
+    <text x="50" y="38" class="subtitle">แผนภาพเทคโนโลยีสำหรับโปรเจกต์ตัวอย่างของนิสิต อ้างอิง 10 บทเรียนจากสถาปัตยกรรมระบบ Netflix</text>
+    <rect x="910" y="4" width="210" height="30" rx="15" fill="rgba(229, 9, 20, 0.15)" stroke="#e50914" stroke-width="1.2" />
+    <text x="926" y="24" font-family="'Kanit', sans-serif" font-size="12" font-weight="700" fill="#f87171">STUDENT TECH BENCHMARK</text>
+  </g>
+
+  <!-- ================= TIER 1: CLIENT & CDN (Lesson 1) ================= -->
+  <g transform="translate(40, 95)">
+    <rect width="1120" height="92" rx="14" fill="url(#cardGrad2)" stroke="#3b4261" stroke-width="1" filter="url(#shadow2)" />
+    <text x="20" y="22" class="tier-header" fill="#38bdf8">TIER 1: PRESENTATION &amp; CDN LAYER (LESSON 1: CLIENT-BACKEND-CDN)</text>
+
+    <!-- Tech 1 -->
+    <g transform="translate(30, 34)">
+      <rect width="250" height="46" rx="8" fill="#24284b" stroke="#38bdf8" stroke-width="1" />
+      <text x="14" y="20" class="tech-box-title">🎨 Modern Web UI &amp; Glass</text>
+      <text x="14" y="36" class="tech-box-sub">HTML5, Vanilla CSS3 (No Framework)</text>
+    </g>
+
+    <!-- Tech 2 -->
+    <g transform="translate(300, 34)">
+      <rect width="255" height="46" rx="8" fill="#24284b" stroke="#38bdf8" stroke-width="1" />
+      <text x="14" y="20" class="tech-box-title">⚡ Interactive Logic &amp; Canvas</text>
+      <text x="14" y="36" class="tech-box-sub">JavaScript (ES6 Modules, Canvas API)</text>
+    </g>
+
+    <!-- Tech 3 -->
+    <g transform="translate(575, 34)">
+      <rect width="255" height="46" rx="8" fill="#24284b" stroke="#f59e0b" stroke-width="1" />
+      <text x="14" y="20" class="tech-box-title">🌐 Edge CDN Caching</text>
+      <text x="14" y="36" class="tech-box-sub">Cloudflare / Open Connect Style CDN</text>
+    </g>
+
+    <!-- Tech 4 -->
+    <g transform="translate(850, 34)">
+      <rect width="240" height="46" rx="8" fill="#24284b" stroke="#10b981" stroke-width="1" />
+      <text x="14" y="20" class="tech-box-title">📊 Self-Evaluation UI</text>
+      <text x="14" y="36" class="tech-box-sub">Real-time SVG Gauge 0-100%</text>
+    </g>
+  </g>
+
+  <!-- ================= TIER 2: GATEWAY & RESILIENCE (Lesson 4 & 8) ================= -->
+  <g transform="translate(40, 202)">
+    <rect width="1120" height="92" rx="14" fill="url(#cardGrad2)" stroke="#3b4261" stroke-width="1" filter="url(#shadow2)" />
+    <text x="20" y="22" class="tier-header" fill="#fb923c">TIER 2: API GATEWAY &amp; FAULT TOLERANCE (LESSON 4: API GATEWAY &amp; LESSON 8: RESILIENCE)</text>
+
+    <!-- Tech 1 -->
+    <g transform="translate(30, 34)">
+      <rect width="250" height="46" rx="8" fill="#24284b" stroke="#fb923c" stroke-width="1" />
+      <text x="14" y="20" class="tech-box-title">🛡️ Reverse Proxy &amp; Gateway</text>
+      <text x="14" y="36" class="tech-box-sub">Apache mod_rewrite / Nginx Ingress</text>
+    </g>
+
+    <!-- Tech 2 -->
+    <g transform="translate(300, 34)">
+      <rect width="255" height="46" rx="8" fill="#24284b" stroke="#fb923c" stroke-width="1" />
+      <text x="14" y="20" class="tech-box-title">🔑 Zero-Trust Auth &amp; Guard</text>
+      <text x="14" y="36" class="tech-box-sub">Token Session, CORS, Rate Limit</text>
+    </g>
+
+    <!-- Tech 3 -->
+    <g transform="translate(575, 34)">
+      <rect width="255" height="46" rx="8" fill="#24284b" stroke="#ef4444" stroke-width="1" />
+      <text x="14" y="20" class="tech-box-title">⚡ Circuit Breaker &amp; Fallbacks</text>
+      <text x="14" y="36" class="tech-box-sub">Hystrix Pattern Graceful Degradation</text>
+    </g>
+
+    <!-- Tech 4 -->
+    <g transform="translate(850, 34)">
+      <rect width="240" height="46" rx="8" fill="#24284b" stroke="#38bdf8" stroke-width="1" />
+      <text x="14" y="20" class="tech-box-title">🧭 Service Discovery</text>
+      <text x="14" y="36" class="tech-box-sub">DNS Service Registry (Eureka Pattern)</text>
+    </g>
+  </g>
+
+  <!-- ================= TIER 3: MICROSERVICES RUNTIME (Lesson 3) ================= -->
+  <g transform="translate(40, 309)">
+    <rect width="1120" height="152" rx="14" fill="url(#cardGrad2)" stroke="#3b4261" stroke-width="1" filter="url(#shadow2)" />
+    <text x="20" y="22" class="tier-header" fill="#c084fc">TIER 3: MICROSERVICES &amp; APPLICATION RUNTIME (LESSON 3: USE MICROSERVICES)</text>
+
+    <!-- Service Box 1 -->
+    <g transform="translate(30, 36)">
+      <rect width="250" height="48" rx="8" fill="#24284b" stroke="#c084fc" stroke-width="1" />
+      <text x="14" y="20" class="tech-box-title">👤 User Auth Service</text>
+      <text x="14" y="36" class="tech-box-sub">PHP 8.2 Strict / PDO Auth Endpoints</text>
+    </g>
+
+    <!-- Service Box 2 -->
+    <g transform="translate(300, 36)">
+      <rect width="255" height="48" rx="8" fill="#24284b" stroke="#c084fc" stroke-width="1" />
+      <text x="14" y="20" class="tech-box-title">📦 Product Catalog Service</text>
+      <text x="14" y="36" class="tech-box-sub">RESTful JSON API &amp; Category Filters</text>
+    </g>
+
+    <!-- Service Box 3 -->
+    <g transform="translate(575, 36)">
+      <rect width="255" height="48" rx="8" fill="#24284b" stroke="#ec4899" stroke-width="1" />
+      <text x="14" y="20" class="tech-box-title">🛋️ 3D Designer Service</text>
+      <text x="14" y="36" class="tech-box-sub">Scene State &amp; Studio Room Geometry</text>
+    </g>
+
+    <!-- Service Box 4 -->
+    <g transform="translate(850, 36)">
+      <rect width="240" height="48" rx="8" fill="#24284b" stroke="#c084fc" stroke-width="1" />
+      <text x="14" y="20" class="tech-box-title">🛒 Cart &amp; Order Service</text>
+      <text x="14" y="36" class="tech-box-sub">Stateful Cart, Checkout Mock</text>
+    </g>
+
+    <!-- Service Box 5 -->
+    <g transform="translate(30, 92)">
+      <rect width="335" height="46" rx="8" fill="#24284b" stroke="#60a5fa" stroke-width="1" />
+      <text x="14" y="20" class="tech-box-title">📰 Dynamic Content &amp; Promo Service</text>
+      <text x="14" y="36" class="tech-box-sub">API endpoints for articles, discounts &amp; promos</text>
+    </g>
+
+    <!-- Service Box 6 -->
+    <g transform="translate(385, 92)">
+      <rect width="345" height="46" rx="8" fill="#24284b" stroke="#fb923c" stroke-width="1" />
+      <text x="14" y="20" class="tech-box-title">🤖 AI Smart Match Recommendation</text>
+      <text x="14" y="36" class="tech-box-sub">Rule-based Furniture Match Algorithm &amp; Preferences</text>
+    </g>
+
+    <!-- Service Box 7 -->
+    <g transform="translate(750, 92)">
+      <rect width="340" height="46" rx="8" fill="#24284b" stroke="#34d399" stroke-width="1" />
+      <text x="14" y="20" class="tech-box-title">📊 Evaluation &amp; Analytics Service</text>
+      <text x="14" y="36" class="tech-box-sub">100% Benchmark Calculation &amp; JSON Persistence</text>
+    </g>
+  </g>
+
+  <!-- ================= TIER 4: MESSAGING & CACHING (Lesson 6 & 7) ================= -->
+  <g transform="translate(40, 476)">
+    <rect width="1120" height="92" rx="14" fill="url(#cardGrad2)" stroke="#3b4261" stroke-width="1" filter="url(#shadow2)" />
+    <text x="20" y="22" class="tier-header" fill="#f472b6">TIER 4: EVENT STREAMING &amp; MULTI-TIER CACHE (LESSON 6: EVENT-DRIVEN &amp; LESSON 7: EVCACHE)</text>
+
+    <!-- Tech 1 -->
+    <g transform="translate(30, 34)">
+      <rect width="340" height="46" rx="8" fill="#24284b" stroke="#f472b6" stroke-width="1" />
+      <text x="14" y="20" class="tech-box-title">📨 Event Bus / Message Broker</text>
+      <text x="14" y="36" class="tech-box-sub">Apache Kafka / RabbitMQ Event Channels</text>
+    </g>
+
+    <!-- Tech 2 -->
+    <g transform="translate(390, 34)">
+      <rect width="340" height="46" rx="8" fill="#24284b" stroke="#ef4444" stroke-width="1" />
+      <text x="14" y="20" class="tech-box-title">⚡ In-Memory Cache (EVCache Pattern)</text>
+      <text x="14" y="36" class="tech-box-sub">Redis 7.0 In-Memory K/V for Low Latency</text>
+    </g>
+
+    <!-- Tech 3 -->
+    <g transform="translate(750, 34)">
+      <rect width="340" height="46" rx="8" fill="#24284b" stroke="#38bdf8" stroke-width="1" />
+      <text x="14" y="20" class="tech-box-title">🔄 Async Event Webhooks</text>
+      <text x="14" y="36" class="tech-box-sub">Decoupled Notifications &amp; Analytics Ingestion</text>
+    </g>
+  </g>
+
+  <!-- ================= TIER 5: POLYGLOT DATA & STORAGE (Lesson 5) ================= -->
+  <g transform="translate(40, 583)">
+    <rect width="1120" height="92" rx="14" fill="url(#cardGrad2)" stroke="#3b4261" stroke-width="1" filter="url(#shadow2)" />
+    <text x="20" y="22" class="tier-header" fill="#34d399">TIER 5: POLYGLOT PERSISTENCE &amp; STORAGE (LESSON 5: DISTRIBUTED DATA STORES)</text>
+
+    <!-- Storage 1 -->
+    <g transform="translate(30, 34)">
+      <rect width="250" height="46" rx="8" fill="#24284b" stroke="#34d399" stroke-width="1" />
+      <text x="14" y="20" class="tech-box-title">🗄️ Relational RDBMS (ACID)</text>
+      <text x="14" y="36" class="tech-box-sub">MySQL 8.0 (InnoDB, Foreign Keys)</text>
+    </g>
+
+    <!-- Storage 2 -->
+    <g transform="translate(300, 34)">
+      <rect width="255" height="46" rx="8" fill="#24284b" stroke="#34d399" stroke-width="1" />
+      <text x="14" y="20" class="tech-box-title">🪣 Cloud Object Storage</text>
+      <text x="14" y="36" class="tech-box-sub">MinIO / AWS S3 (Images, 3D Assets)</text>
+    </g>
+
+    <!-- Storage 3 -->
+    <g transform="translate(575, 34)">
+      <rect width="255" height="46" rx="8" fill="#24284b" stroke="#06b6d4" stroke-width="1" />
+      <text x="14" y="20" class="tech-box-title">🔍 Search Index</text>
+      <text x="14" y="36" class="tech-box-sub">MySQL Full-Text / ElasticSearch</text>
+    </g>
+
+    <!-- Storage 4 -->
+    <g transform="translate(850, 34)">
+      <rect width="240" height="46" rx="8" fill="#24284b" stroke="#a78bfa" stroke-width="1" />
+      <text x="14" y="20" class="tech-box-title">📄 Document Store</text>
+      <text x="14" y="36" class="tech-box-sub">JSON Evaluations &amp; Room Configs</text>
+    </g>
+  </g>
+
+  <!-- ================= TIER 6: DEVOPS & OBSERVABILITY (Lesson 2, 9 & 10) ================= -->
+  <g transform="translate(40, 690)">
+    <rect width="1120" height="114" rx="14" fill="url(#cardGrad2)" stroke="#3b4261" stroke-width="1" filter="url(#shadow2)" />
+    <text x="20" y="22" class="tier-header" fill="#a78bfa">TIER 6: DEVOPS, CLOUD SCALABILITY &amp; TELEMETRY (LESSONS 2, 9 &amp; 10: AWS, OBSERVABILITY &amp; SECURITY)</text>
+
+    <!-- DevOps 1 -->
+    <g transform="translate(30, 34)">
+      <rect width="250" height="64" rx="8" fill="#24284b" stroke="#38bdf8" stroke-width="1" />
+      <text x="14" y="20" class="tech-box-title">🐳 Containerization</text>
+      <text x="14" y="36" class="tech-box-sub">Docker &amp; Docker Compose</text>
+      <text x="14" y="52" class="tech-box-sub">Multi-Service Orchestration</text>
+    </g>
+
+    <!-- DevOps 2 -->
+    <g transform="translate(300, 34)">
+      <rect width="255" height="64" rx="8" fill="#24284b" stroke="#f59e0b" stroke-width="1" />
+      <text x="14" y="20" class="tech-box-title">☁️ Cloud Scalability</text>
+      <text x="14" y="36" class="tech-box-sub">AWS EC2 / ECS / Kubernetes</text>
+      <text x="14" y="52" class="tech-box-sub">Horizontal Auto-Scaling (HPA)</text>
+    </g>
+
+    <!-- DevOps 3 -->
+    <g transform="translate(575, 34)">
+      <rect width="255" height="64" rx="8" fill="#24284b" stroke="#34d399" stroke-width="1" />
+      <text x="14" y="20" class="tech-box-title">📈 Metrics &amp; Monitoring</text>
+      <text x="14" y="36" class="tech-box-sub">Prometheus &amp; Grafana Dashboards</text>
+      <text x="14" y="52" class="tech-box-sub">Docker Healthcheck Probes</text>
+    </g>
+
+    <!-- DevOps 4 -->
+    <g transform="translate(850, 34)">
+      <rect width="240" height="64" rx="8" fill="#24284b" stroke="#ec4899" stroke-width="1" />
+      <text x="14" y="20" class="tech-box-title">🐒 Chaos Engineering</text>
+      <text x="14" y="36" class="tech-box-sub">Chaos Monkey Concept</text>
+      <text x="14" y="52" class="tech-box-sub">Simulating Failures &amp; Recovery</text>
+    </g>
+  </g>
+</svg>
