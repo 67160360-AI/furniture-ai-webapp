@@ -12,7 +12,9 @@
 4. [โมดูลที่ 3: เอกสารและแผนภาพ Technology Stack Diagram (Netflix Model)](#4-โมดูลที่-3-เอกสารและแผนภาพ-technology-stack-diagram-netflix-model)
 5. [โมดูลที่ 4: Backend REST API และระบบจัดเก็บข้อมูล (Data Persistence)](#5-โมดูลที่-4-backend-rest-api-และระบบจัดเก็บข้อมูล-data-persistence)
 6. [โมดูลที่ 5: การเชื่อมต่อระบบนำทางเดิม (Navigation & UI Integration)](#6-โมดูลที่-5-การเชื่อมต่อระบบนำทางเดิม-navigation--ui-integration)
-7. [วิธีการเข้าใช้งานและคำสั่งทดสอบ (Verification & Quick Run)](#7-วิธีการเข้าใช้งานและคำสั่งทดสอบ-verification--quick-run)
+7. [โมดูลที่ 6: The Perfect Match & 2D/3D Furniture Designer Studio](#7-โมดูลที่-6-the-perfect-match--2d3d-furniture-designer-studio)
+8. [วิธีการเข้าใช้งานและคำสั่งทดสอบ (Verification & Quick Run)](#8-วิธีการเข้าใช้งานและคำสั่งทดสอบ-verification--quick-run)
+
 
 ---
 
@@ -32,13 +34,14 @@
 | 🟢 **NEW** | 10 | [`docs/SCALING_ARCHITECTURE.md`](file:///d:/Documents/Downloads/furniture-ai-webapp-main/furniture-ai-webapp-main/docs/SCALING_ARCHITECTURE.md) | Documentation | เอกสารสถาปัตยกรรมถอดแบบจาก Scaling Netflix Membership Architecture สู่โมเดล Maison Forme |
 | 🟢 **NEW** | 11 | [`assets/images/netflix_style_architecture.svg`](file:///d:/Documents/Downloads/furniture-ai-webapp-main/furniture-ai-webapp-main/assets/images/netflix_style_architecture.svg) | Architecture Vector | แผนภาพสถาปัตยกรรม Scaling Netflix Model (กล่องสีฟ้า/ส้ม/เหลือง/เขียว และกระบอกสูบฐานข้อมูล 3D) |
 | 🟢 **NEW** | 12 | [`database/evaluation_data.json`](file:///d:/Documents/Downloads/furniture-ai-webapp-main/furniture-ai-webapp-main/database/evaluation_data.json) | Data Store | ไฟล์จัดเก็บประวัติผลการประเมินตนเองของนิสิตแบบ Document Store สำหรับอ่าน/เขียนแบบรวดเร็ว |
-| 🔵 **MOD** | 13 | [`README.md`](file:///d:/Documents/Downloads/furniture-ai-webapp-main/furniture-ai-webapp-main/README.md) | Project Guide | เพิ่มโครงสร้างโฟลเดอร์ใหม่, เพิ่มคู่มือระบบประเมิน 100%, แนบแผนภาพสถาปัตยกรรมและลิงก์เอกสาร |
-| 🔵 **MOD** | 12 | [`index.php`](file:///d:/Documents/Downloads/furniture-ai-webapp-main/furniture-ai-webapp-main/index.php) | Navigation | เพิ่มเมนูนำทาง `📊 ประเมินโครงงาน (100%)` ในแถบ Navbar |
-| 🔵 **MOD** | 13 | [`index.html`](file:///d:/Documents/Downloads/furniture-ai-webapp-main/furniture-ai-webapp-main/index.html) | Navigation | เพิ่มเมนูนำทาง `📊 ประเมินโครงงาน (100%)` ในแถบ Navbar |
-| 🔵 **MOD** | 14 | [`dashboard.html`](file:///d:/Documents/Downloads/furniture-ai-webapp-main/furniture-ai-webapp-main/dashboard.html) | Dashboard & Nav | เพิ่มการ์ดทางลัดเข้าสู่ระบบประเมิน และเพิ่มลิงก์ในเมนูนำทาง |
-| 🔵 **MOD** | 15 | [`products.html`](file:///d:/Documents/Downloads/furniture-ai-webapp-main/furniture-ai-webapp-main/products.html) | Navigation | เพิ่มเมนูนำทาง `📊 ประเมินโครงงาน` ในแถบ Navbar |
-| 🔵 **MOD** | 16 | [`furniture-designer.html`](file:///d:/Documents/Downloads/furniture-ai-webapp-main/furniture-ai-webapp-main/furniture-designer.html) | Navigation | เพิ่มเมนูนำทาง `📊 ประเมินโครงงาน` ในแถบ Navbar |
-| 🔵 **MOD** | 17 | [`furniture-designer.php`](file:///d:/Documents/Downloads/furniture-ai-webapp-main/furniture-ai-webapp-main/furniture-designer.php) | Navigation | เพิ่มเมนูนำทาง `📊 ประเมินโครงงาน` ในแถบ Navbar |
+| 🟢 **NEW** | 13 | [`assets/js/furniture-designer.js`](file:///d:/Documents/Downloads/furniture-ai-webapp-main/furniture-ai-webapp-main/assets/js/furniture-designer.js) | Client Logic & Canvas | โมดูลประเมินสไตล์ห้อง (4-Step Wizard), วาดห้องจำลอง 2D/3D บน Canvas, คำนวณ Match Score, และผูกระบบตะกร้า |
+| 🔵 **MOD** | 14 | [`furniture-designer.html`](file:///d:/Documents/Downloads/furniture-ai-webapp-main/furniture-ai-webapp-main/furniture-designer.html) | Interactive Studio UI | เพิ่ม The Perfect Match Studio, สตูดิโอห้องจำลอง Canvas, และแก้ไขปุ่ม Hero CTA ให้เปิดระบบประเมินแทนการวนลูป |
+| 🔵 **MOD** | 15 | [`furniture-designer.php`](file:///d:/Documents/Downloads/furniture-ai-webapp-main/furniture-ai-webapp-main/furniture-designer.php) | Interactive Studio UI | เพิ่ม The Perfect Match Studio, สตูดิโอห้องจำลอง Canvas พร้อมระบบสินค้า Dynamic จากฐานข้อมูล |
+| 🔵 **MOD** | 16 | [`README.md`](file:///d:/Documents/Downloads/furniture-ai-webapp-main/furniture-ai-webapp-main/README.md) | Project Guide | เพิ่มโครงสร้างโฟลเดอร์ใหม่, เพิ่มคู่มือระบบประเมิน 100%, แนบแผนภาพสถาปัตยกรรมและลิงก์เอกสาร |
+| 🔵 **MOD** | 17 | [`index.php`](file:///d:/Documents/Downloads/furniture-ai-webapp-main/furniture-ai-webapp-main/index.php) | Navigation | เพิ่มเมนูนำทาง `📊 ประเมินโครงงาน (100%)` ในแถบ Navbar |
+| 🔵 **MOD** | 18 | [`index.html`](file:///d:/Documents/Downloads/furniture-ai-webapp-main/furniture-ai-webapp-main/index.html) | Navigation | เพิ่มเมนูนำทาง `📊 ประเมินโครงงาน (100%)` ในแถบ Navbar |
+| 🔵 **MOD** | 19 | [`dashboard.html`](file:///d:/Documents/Downloads/furniture-ai-webapp-main/furniture-ai-webapp-main/dashboard.html) | Dashboard & Nav | เพิ่มการ์ดทางลัดเข้าสู่ระบบประเมิน และเพิ่มลิงก์ในเมนูนำทาง |
+| 🔵 **MOD** | 20 | [`products.html`](file:///d:/Documents/Downloads/furniture-ai-webapp-main/furniture-ai-webapp-main/products.html) | Navigation | เพิ่มเมนูนำทาง `📊 ประเมินโครงงาน` ในแถบ Navbar |
 
 ---
 
@@ -150,9 +153,38 @@ Client (Web / Mobile / 3D Canvas)
 
 ---
 
-## 7. วิธีการเข้าใช้งานและคำสั่งทดสอบ (Verification & Quick Run)
+## 7. โมดูลที่ 6: The Perfect Match & 2D/3D Furniture Designer Studio
+
+### ไฟล์ที่เกี่ยวข้อง:
+- ฟรอนต์เอนด์: [`furniture-designer.html`](file:///d:/Documents/Downloads/furniture-ai-webapp-main/furniture-ai-webapp-main/furniture-designer.html) และ [`furniture-designer.php`](file:///d:/Documents/Downloads/furniture-ai-webapp-main/furniture-ai-webapp-main/furniture-designer.php)
+- ตรรกะการทำงานและ Canvas: [`assets/js/furniture-designer.js`](file:///d:/Documents/Downloads/furniture-ai-webapp-main/furniture-ai-webapp-main/assets/js/furniture-designer.js)
+
+### ความสามารถหลักที่ได้รับการพัฒนา:
+1. **Interactive 4-Step Style Assessment Wizard**:
+   - ประเมินประเภทห้อง (Living Room, Bedroom, Home Office, Condo Studio)
+   - ประเมินสไตล์ (Japandi & Minimalist, Modern Luxury, Scandinavian, Industrial Loft)
+   - ประเมินวัสดุและคู่สี (Oak, Marble/Brass, Leather/Walnut, Earth Linen)
+   - ประเมินขนาดพื้นที่และงบประมาณ
+2. **Style Match Analytics Engine**:
+   - แสดงคะแนนความลงตัว (Match Score เช่น 98% MATCH)
+   - แสดงพาเลทคู่สี 4 Swatches พร้อมรหัสสี HEX
+   - ให้คำแนะนำดีไซเนอร์ระดับโปร (Lighting & Styling Advice)
+3. **Interactive 2D / 3D Canvas Room Visualizer**:
+   - เรนเดอร์ห้องจำลองเสมือนจริงบน HTML5 Canvas ปรับเปลี่ยนสีผนัง 5 เฉดสี และวัสดุพื้น 3 รูปแบบ
+   - สลับมุมมอง Perspective 3D Isometric และ Architectural 2D Blueprint Floor Plan
+   - สลับเปิด/ปิดเลเยอร์เฟอร์นิเจอร์ (Sofa, Coffee Table, Floor Lamp, Area Rug, Plant)
+   - ปุ่มดาวน์โหลดแบบแปลนห้อง (Export PNG)
+4. **Matched Furniture Set & 1-Click Bundle Cart**:
+   - ดึงสินค้าจริงจากฐานข้อมูลและ API (`api_products.php`) มาจับคู่เป็นเซ็ต 4 ชิ้น
+   - คำนวณราคารวมและมอบส่วนลด Bundle พิเศษ 10%
+   - ปุ่มหยิบสินค้าลงในตะกร้าทีละชิ้น หรือกด "🛒 เพิ่มเซ็ตนี้ลงในตะกร้าทั้งหมด" เชื่อมโยงกับ `localStorage` และ Cart Badge บน Header ทันที
+
+---
+
+## 8. วิธีการเข้าใช้งานและคำสั่งทดสอบ (Verification & Quick Run)
 
 ### ช่องทางการเปิดดูผลลัพธ์ผ่านเบราว์เซอร์:
+- 🎨 **สตูดิโอประเมินสไตล์และห้องจำลอง (The Perfect Match)**: [http://localhost:8080/furniture-designer.html](http://localhost:8080/furniture-designer.html) หรือ [http://localhost:8080/furniture-designer.php](http://localhost:8080/furniture-designer.php)
 - 🌐 **หน้าระบบประเมินผลงานของนิสิต**: [http://localhost:8080/evaluation.html](http://localhost:8080/evaluation.html)
 - 🏠 **หน้าแรกของเว็บไซต์**: [http://localhost:8080/index.php](http://localhost:8080/index.php)
 - 📊 **หน้าแดชบอร์ดบัญชีผู้ใช้**: [http://localhost:8080/dashboard.html](http://localhost:8080/dashboard.html)
@@ -169,3 +201,4 @@ curl -i http://localhost:8080/api_evaluation.php
 # 3. ดูไฟล์ JSON ที่บันทึกผลการประเมิน
 cat database/evaluation_data.json
 ```
+
